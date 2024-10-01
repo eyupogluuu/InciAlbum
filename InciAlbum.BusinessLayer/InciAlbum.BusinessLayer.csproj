@@ -19,4 +19,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\InciAlbum.DataAccessLayer\InciAlbum.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\InciAlbum.EntityLayer\InciAlbum.EntityLayer.csproj" />
+  </ItemGroup>
+
 </Project>

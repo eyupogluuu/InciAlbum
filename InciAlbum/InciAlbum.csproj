@@ -19,4 +19,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\InciAlbum.BusinessLayer\InciAlbum.BusinessLayer.csproj" />
+    <ProjectReference Include="..\InciAlbum.DataAccessLayer\InciAlbum.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\InciAlbum.EntityLayer\InciAlbum.EntityLayer.csproj" />
+  </ItemGroup>
+
 </Project>
