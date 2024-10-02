@@ -1,8 +1,10 @@
+using FluentValidation;
 using InciAlbum.BusinessLayer.Abstract;
 using InciAlbum.BusinessLayer.Concrete;
 using InciAlbum.DataAccessLayer.Abstract;
 using InciAlbum.DataAccessLayer.Concrete.EntityFramework;
 using InciAlbum.DataAccessLayer.Contexts;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,9 @@ builder.Services.AddDbContext<InciAlbumContext>();
 
 builder.Services.AddScoped<ImyServiceService, myServiceManager>();
 builder.Services.AddScoped<ImyServiceDal, EFmyServiceDal>();
+
+builder.Services.AddScoped<IStuffService, StuffManager>();
+builder.Services.AddScoped<IStuffDal, EFStuffDal>();
 
 
 
@@ -27,6 +32,8 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+ValidatorOptions.Global.LanguageManager.Culture = new System.Globalization.CultureInfo("tr");
+
 
 
 app.UseStaticFiles();

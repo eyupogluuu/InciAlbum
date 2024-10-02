@@ -1,0 +1,73 @@
+﻿@model InciAlbum.EntityLayer.Concrete.Stuff
+@{
+    ViewData["Title"] = "UpdateStuff";
+    Layout = "~/Views/Shared/admin_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <h2 class="text-center mb-4">Kişi bilgi Güncelle</h2>
+
+    <form method="post" class="p-4 border rounded shadow-sm bg-light">
+        <input type="hidden" asp-for="stuffId" />
+        <div class="mb-3">
+            <label for="tittle" class="form-label">Ad Soyad:</label>
+            <input type="text" asp-for="nameSurname" class="form-control" id="tittle" />
+        </div>
+
+        <div class="mb-3">
+            <label for="descreption" class="form-label">Görev</label>
+            <input type="text" asp-for="tittle" class="form-control" id="descreption" />
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label"> Görsel</label>
+            <input type="text" asp-for="imageUrl" class="form-control" id="image" />
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label"> Facebook URL</label>
+            <input type="text" asp-for="faceUrl" class="form-control" id="image" />
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label"> İnstagram URL</label>
+            <input type="text" asp-for="instaUrl" class="form-control" id="image" />
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label"> Twitter URL</label>
+            <input type="text" asp-for="twUrl" class="form-control" id="image" />
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label"> Website URL</label>
+            <input type="text" asp-for="websiteUrl" class="form-control" id="image" />
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-dark">Kaydet</button>
+        </div>
+    </form>
+</div>
+
+<style>
+    .container-fluid {
+        background-color: #f8f9fa;
+        padding: 30px;
+    }
+
+    .form-label {
+        font-weight: bold;
+    }
+
+    .btn-dark {
+        background-color: #343a40;
+        color: white;
+    }
+
+        .btn-dark:hover {
+            background-color: #495057;
+        }
+</style>
+
+
