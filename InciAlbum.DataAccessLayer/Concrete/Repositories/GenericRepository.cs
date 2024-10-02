@@ -32,14 +32,14 @@ namespace InciAlbum.DataAccessLayer.Concrete.Repositories
         public void Insert(T t)
         {
             using var context = new InciAlbumContext();
-            context.Remove(t);
+            context.Add(t);
             context.SaveChanges();
         }
 
         public void Update(T t)
         {
             using var context = new InciAlbumContext();
-            context.Remove(t);
+            context.Update(t);
             context.SaveChanges();
         }
     }

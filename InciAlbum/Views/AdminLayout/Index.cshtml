@@ -1,0 +1,27 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+@Html.ActionLink("headPartial","AdminLayout")
+<body>
+
+    <!-- ======= Header ======= -->
+    @Html.ActionLink("headerPartial","AdminLayout")
+    <!-- ======= Sidebar ======= -->
+    @Html.ActionLink("sidebarPartial","AdminLayout")
+    <main id="main" class="main">
+
+        <div class="container">
+            @RenderBody()
+        </div>
+
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+    @Html.ActionLink("footerPartial","AdminLayout")
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    @Html.ActionLink("scriptPartial","AdminLayout")
+
+</body>
+</html>

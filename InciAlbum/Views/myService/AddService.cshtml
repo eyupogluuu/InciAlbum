@@ -1,0 +1,50 @@
+﻿@model InciAlbum.EntityLayer.Concrete.myService
+@{
+    ViewData["Title"] = "AddService";
+    Layout = "~/Views/Shared/admin_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <h2 class="text-center mb-4">Yeni Hizmet Ekle</h2>
+
+    <form method="post" class="p-4 border rounded shadow-sm bg-light">
+        <div class="mb-3">
+            <label for="tittle" class="form-label">Hizmet Başlığı</label>
+            <input type="text" asp-for="tittle" class="form-control" id="tittle" />
+        </div>
+
+        <div class="mb-3">
+            <label for="descreption" class="form-label">Hizmet Açıklama</label>
+            <input type="text" asp-for="descreption" class="form-control" id="descreption" />
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Hizmet Görsel</label>
+            <input type="text" asp-for="image" class="form-control" id="image" />
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-dark">Kaydet</button> 
+        </div>
+    </form>
+</div>
+
+<style>
+    .container-fluid {
+        background-color: #f8f9fa;
+        padding: 30px;
+    }
+
+    .form-label {
+        font-weight: bold;
+    }
+
+    .btn-dark {
+        background-color: #343a40;
+        color: white;
+    }
+
+        .btn-dark:hover {
+            background-color: #495057;
+        }
+</style>

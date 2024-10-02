@@ -1,7 +1,20 @@
+using InciAlbum.BusinessLayer.Abstract;
+using InciAlbum.BusinessLayer.Concrete;
+using InciAlbum.DataAccessLayer.Abstract;
+using InciAlbum.DataAccessLayer.Concrete.EntityFramework;
+using InciAlbum.DataAccessLayer.Contexts;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<InciAlbumContext>();
+
+builder.Services.AddScoped<ImyServiceService, myServiceManager>();
+builder.Services.AddScoped<ImyServiceDal, EFmyServiceDal>();
+
+
 
 var app = builder.Build();
 
@@ -14,11 +27,14 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+
 app.UseStaticFiles();
 
 app.UseRouting();
 
 app.UseAuthorization();
+app.MapDefaultControllerRoute();
 
 app.MapControllerRoute(
     name: "default",
