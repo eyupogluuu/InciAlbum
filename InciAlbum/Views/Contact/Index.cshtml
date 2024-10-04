@@ -1,0 +1,83 @@
+﻿@using InciAlbum.EntityLayer.Concrete
+@model List<Contact>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/admin_Layout.cshtml";
+}
+
+<h1 class="text-center my-title">Gelen Kutusu</h1>
+<br />
+<div class="table-responsive">
+    <table class="table table-hover table-bordered my-table">
+        <thead class="thead-light">
+            <tr>
+                <th>ID</th>
+                <th>Gönderen</th>
+                <th>Mail</th>
+                <th>İçerik</th>
+                <th>Tarih</th>
+                <th>Sil</th>
+                <th>Oku</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.contactId</td>
+                    <td>@item.name  </td>
+                    <td>@item.mail</td>
+                    <td>@item.comment.Substring(0,15)..</td>
+                    <td>@Convert.ToDateTime(item.date).ToString("dd/MM/yyyy")</td>
+                    <td><a class="btn btn-outline-danger" href="/Contact/DeleteContact/@item.contactId">Sil</a></td>
+                    <td><a class="btn btn-outline-secondary" href="/Contact/ContactDetails/@item.contactId">Devamını Gör</a></td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@* <div class="text-center mt-4">
+    <a href="@Url.Action("AddNotice", "Notice")" class="btn btn-dark-gray">Yeni Duyuru Ekle</a>
+</div> *@
+
+<style>
+    .my-title {
+        font-family: 'Arial', sans-serif;
+        font-size: 2.5rem;
+        color: #003366;
+        margin-bottom: 20px;
+    }
+
+    .my-table {
+        background-color: #ffffff;
+        border-radius: 0.5rem;
+        overflow: hidden;
+    }
+
+    .table th {
+        background-color: #003366;
+        color: white;
+    }
+
+    .table td {
+        text-align: center;
+    }
+
+    .btn-dark-gray {
+        background-color: #003366;
+        color: white;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 0.3rem;
+    }
+
+        .btn-dark-gray:hover {
+            background-color: #555555;
+        }
+</style>
+
+
+

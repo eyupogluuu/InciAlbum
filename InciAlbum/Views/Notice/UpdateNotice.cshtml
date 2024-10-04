@@ -1,0 +1,55 @@
+﻿@model InciAlbum.EntityLayer.Concrete.Notice
+@{
+    ViewData["Title"] = "UpdateNotice";
+    Layout = "~/Views/Shared/admin_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <h2 class="text-center mb-4">Duyuru Güncelle</h2>
+
+    <form method="post" class="p-4 border rounded shadow-sm bg-light">
+        <input type="hidden" asp-for="noticeId" />
+        <div class="mb-3">
+            <label for="tittle" class="form-label">Duyuru Başlığı</label>
+            <input type="text" asp-for="tittle" class="form-control" id="tittle" />
+        </div>
+
+        <div class="mb-3">
+            <label for="descreption" class="form-label">Duyuru Açıklama</label>
+            <input type="text" asp-for="descreption" class="form-control" id="descreption" />
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Duyuru Görsel</label>
+            <input type="date" asp-for="date" class="form-control" id="image" />
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Durum</label>
+            <input type="text" asp-for="status" class="form-control" id="image" />
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-success">Güncelle</button>
+        </div>
+    </form>
+</div>
+
+<style>
+    .container-fluid {
+        background-color: #f8f9fa;
+        padding: 30px;
+    }
+
+    .form-label {
+        font-weight: bold;
+    }
+
+    .btn-dark {
+        background-color: #343a40;
+        color: white;
+    }
+
+        .btn-dark:hover {
+            background-color: #495057;
+        }
+</style>
+

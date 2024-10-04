@@ -10,6 +10,7 @@ namespace InciAlbum.EntityLayer.Concrete
     {
         public int imageId { get; set; }
         public string tittle { get; set; }
-        public string descreption { get; set; }
+        public string imageUrl { get; set; }
+       
     }
 }

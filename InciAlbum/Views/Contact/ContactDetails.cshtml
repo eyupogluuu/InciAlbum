@@ -1,0 +1,60 @@
+﻿@model InciAlbum.EntityLayer.Concrete.Contact
+@{
+    ViewData["Title"] = "ContactDetails";
+    Layout = "~/Views/Shared/admin_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <h2 class="text-center mb-4">Gelen Kutusu</h2>
+
+    <form method="post" class="p-4 border rounded shadow-sm bg-light">
+        <input type="hidden" asp-for="contactId" />
+        <div class="mb-3">
+            <label  class="form-label">Gönderen</label>
+            <input type="text" asp-for="name" class="form-control"  />
+        </div>
+
+        <div class="mb-3">
+            <label  class="form-label">Mail</label>
+            <input type="text" asp-for="mail" class="form-control"  />
+        </div>
+
+        <div class="mb-3">
+            <label  class="form-label">Tarih</label>
+            <input type="text" asp-for="date" class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">İçerik</label>
+         <textarea asp-for="comment" rows="10" cols="5" class="form-control"></textarea>
+        </div>
+        
+        <div class="text-center">
+            <button type="submit" class="btn btn-secondary" href="/Contact/Index/">Geri</button>
+        </div>
+    </form>
+</div>
+
+
+<style>
+    .container-fluid {
+        background-color: #f8f9fa;
+        padding: 30px;
+    }
+
+    .form-label {
+        font-weight: bold;
+    }
+
+    .btn-dark {
+        background-color: #343a40;
+        color: white;
+    }
+
+        .btn-dark:hover {
+            background-color: #495057;
+        }
+</style>
+
+
+

@@ -1,24 +1,19 @@
 ﻿@using InciAlbum.EntityLayer.Concrete
-@model List<Stuff>
+@model List<Image>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/admin_Layout.cshtml";
 }
 
-<h1 class="text-center my-title">Takımımız</h1>
+<h1 class="text-center my-title">Foto Galeri</h1>
 <br />
 <div class="table-responsive">
     <table class="table table-hover table-bordered my-table">
         <thead class="thead-light">
             <tr>
-                <th>#</th>
-                <th>Ad Soyad</th>
-                <th>Görev</th>
-                <th>Fotoğraf</th>
-                <th>Fecebook</th>
-                <th>Twitter</th>
-                <th>İnstagram</th>
-                <th>Website</th>
+                <th>ID</th>
+                <th>Başlık</th>             
+                <th>Görsel</th>
                 <th>Sil</th>
                 <th>Güncelle</th>
             </tr>
@@ -27,19 +22,15 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@item.stuffId</td>
-                    <td>@item.nameSurname</td>
+                    <td>@item.imageId</td>
                     <td>@item.tittle</td>
+                  
                     <td>
 
                         <img src="@item.imageUrl" alt="@item.tittle" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;" />
                     </td>
-                    <td>@item.faceUrl</td>
-                    <td>@item.twUrl</td>
-                    <td>@item.instaUrl</td>
-                    <td>@item.websiteUrl</td>
-                    <td><a class="btn btn-outline-danger" href="/Stuff/DeleteStuff/@item.stuffId">Sil</a></td>
-                    <td><a class="btn btn-outline-success" href="/Stuff/UpdateStuff/@item.stuffId">Güncelle</a></td>
+                    <td><a class="btn btn-outline-danger" href="/Image/DeleteImage/@item.imageId">Sil</a></td>
+                    <td><a class="btn btn-outline-success" href="/Image/UpdateImage/@item.imageId">Güncelle</a></td>
 
                 </tr>
             }
@@ -48,7 +39,7 @@
 </div>
 
 <div class="text-center mt-4">
-    <a href="@Url.Action("AddStuff", "Stuff")" class="btn btn-dark-gray">Yeni Kişi Ekle</a>
+    <a href="@Url.Action("AddImage", "Image")" class="btn btn-dark-gray">Yeni Resim Ekle</a>
 </div>
 
 <style>
@@ -84,8 +75,6 @@
     }
 
         .btn-dark-gray:hover {
-            background-color: #003399;
+            background-color: #555555;
         }
 </style>
-
-

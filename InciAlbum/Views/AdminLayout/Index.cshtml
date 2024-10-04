@@ -4,13 +4,14 @@
 
 <!DOCTYPE html>
 <html lang="en">
-@Html.ActionLink("headPartial","AdminLayout")
+@await Html.PartialAsync("~/Views/AdminLayout/headPartial.cshtml")
+
 <body>
 
     <!-- ======= Header ======= -->
-    @Html.ActionLink("headerPartial","AdminLayout")
+    @await Html.PartialAsync("~/Views/AdminLayout/headerPartial.cshtml")
     <!-- ======= Sidebar ======= -->
-    @Html.ActionLink("sidebarPartial","AdminLayout")
+    @await Html.PartialAsync("~/Views/AdminLayout/sidebarPartial.cshtml")
     <main id="main" class="main">
 
         <div class="container">
@@ -19,9 +20,9 @@
 
     </main><!-- End #main -->
     <!-- ======= Footer ======= -->
-    @Html.ActionLink("footerPartial","AdminLayout")
+    @await Html.PartialAsync("~/Views/AdminLayout/footerPartial.cshtml")
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-    @Html.ActionLink("scriptPartial","AdminLayout")
+    @await Html.PartialAsync("~/Views/AdminLayout/scriptPartial.cshtml")
 
 </body>
 </html>

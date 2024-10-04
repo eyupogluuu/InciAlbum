@@ -4,6 +4,7 @@ using InciAlbum.BusinessLayer.Concrete;
 using InciAlbum.DataAccessLayer.Abstract;
 using InciAlbum.DataAccessLayer.Concrete.EntityFramework;
 using InciAlbum.DataAccessLayer.Contexts;
+using InciAlbum.EntityLayer.Concrete;
 using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +20,21 @@ builder.Services.AddScoped<ImyServiceDal, EFmyServiceDal>();
 builder.Services.AddScoped<IStuffService, StuffManager>();
 builder.Services.AddScoped<IStuffDal, EFStuffDal>();
 
+builder.Services.AddScoped<INoticeService, NoticeManager>();
+builder.Services.AddScoped<INoticeDal, EFNoticeDal>();
+
+builder.Services.AddScoped<IImageService, ImageManager>();
+builder.Services.AddScoped<IImageDal, EFImageDal>();
+
+builder.Services.AddScoped<ImyAdressService, myAdressManager>();
+builder.Services.AddScoped<ImyAdressDal, EFmyAdressDal>();
+
+builder.Services.AddScoped<IContactService, ContactManager>();
+builder.Services.AddScoped<IContactDal, EFContactDal>();
+
+builder.Services.AddScoped<IProductService, ProductManager>();
+builder.Services.AddScoped<IProductDal, EFProductDal>();
+
 
 
 var app = builder.Build();
@@ -32,9 +48,6 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-ValidatorOptions.Global.LanguageManager.Culture = new System.Globalization.CultureInfo("tr");
-
-
 
 app.UseStaticFiles();
 
