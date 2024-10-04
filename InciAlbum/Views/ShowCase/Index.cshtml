@@ -1,0 +1,64 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zxx">
+@await Component.InvokeAsync("_headPartial")
+<body>
+	<!-- /banner -->
+	@await Component.InvokeAsync("_headerPartial")
+	<!--//banner -->
+	@await Component.InvokeAsync("_aboutPartial")
+	<!--/Modal -->
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header text-center">
+					<h5 class="modal-title text-center" id="exampleModalLongTitle">Title Here</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<img src="images/g1.jpg" class="img-fluid" alt="">
+					<h4>Sub title here</h4>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna
+						aliqua uta enim ad minim ven iam quis nostrud exercitation ullamco.
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--//Model-->
+	<!-- services -->
+	@await Component.InvokeAsync("_myServicePartial")
+	<!-- //services -->
+	<!-- Team -->
+	@await Component.InvokeAsync("_stuffPartial")
+	<!-- //Team -->
+	<!-- gallery -->
+	@await Component.InvokeAsync("_galeryPartial")
+	<!-- //gallery -->
+	<!--/pricing -->
+	@await Component.InvokeAsync("_productPartial")
+	<!--//pricing -->
+	<!--/notices-->
+	@await Component.InvokeAsync("_noticePartial")
+	<!--//notices-->
+	<!-- contact -->
+	@await Component.InvokeAsync("_contactPartial")
+	<!-- //contact -->
+	<!--footer-->
+	@await Component.InvokeAsync("_footerPartial")
+	<!-- //footer -->
+	<!-- js -->
+	@await Component.InvokeAsync("_scriptPartial")
+</body>
+
+</html>
