@@ -1,114 +1,449 @@
-﻿<section class="gallery py-lg-5 py-3" id="gallery">
+﻿@* @* @using InciAlbum.EntityLayer.Concrete
+@model List<Image>
+
+<section class="gallery py-lg-5 py-3" id="gallery">
+    <div class="container-fluid">
+        <div class="inner-sec-w3ls-agileits p-lg-5 p-3">
+            <div class="gallery_grids row">
+                <div class="col-12 header-info mb-5 text-center">
+                    <h3 class="heading">Foto Galeri</h3>
+                    <p>Çeşitli Organizasyonlarda Yaptığımız Örnek Çekimlere Buradan Göz Atabilirsiniz</p>
+                </div>
+                <div class="col-12 gal-content">
+                    <ul class="gallery-list d-flex flex-wrap list-unstyled justify-content-center">
+                        @foreach (var item in Model)
+                        {
+                            <li class="gallery-item">
+                                <div class="gallery-grid1">
+                                    <img src="@item.imageUrl" alt=" " class="img-fluid" />
+                                    <div class="p-mask">
+                                        <h4>@item.tittle</h4>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Galeri genel stilleri */
+    .gallery-list {
+        display: flex;
+        flex-wrap: wrap; /* Yan yana ve satır dolduğunda aşağı geçmesini sağlar */
+        padding: 0;
+        margin: 0;
+        justify-content: space-evenly; /* Resimleri yatayda eşit aralıklarla yerleştirir */
+    }
+
+    .gallery-item {
+        width: 300px;
+        height: 200px; /* Tüm resimler için sabit yükseklik */
+        margin: 10px; /* Resimler arasında boşluk */
+        list-style: none;
+    }
+
+    /* Galeri grid stilleri */
+    .gallery-grid1 {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+        .gallery-grid1 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Resimleri aynı boyutta ve çerçeveye tam sığacak şekilde ayarlar */
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery-grid1:hover img {
+            transform: scale(1.05); /* Üzerine gelince resmi büyütme efekti */
+        }
+
+    /* Mask alanı */
+    .p-mask {
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .gallery-grid1:hover .p-mask {
+        opacity: 1; /* Üzerine gelince mask alanını görünür yapma */
+    }
+
+    .p-mask h4 {
+        font-size: 1rem;
+        margin: 0;
+    }
+</style>
+
+
+ *@
+
+@* @using InciAlbum.EntityLayer.Concrete
+@model List<Image>
+
+<section class="gallery py-lg-5 py-3" id="gallery">
+    <div class="container-fluid">
+        <div class="inner-sec-w3ls-agileits p-lg-5 p-3">
+            <div class="gallery_grids row">
+                <div class="col-12 header-info mb-5 text-center">
+                    <h3 class="heading">Foto Galeri</h3>
+                    <p>Çeşitli Organizasyonlarda Yaptığımız Örnek Çekimlere Buradan Göz Atabilirsiniz</p>
+                </div>
+                <div class="col-12 gal-content">
+                    <ul class="gallery-list d-flex flex-wrap list-unstyled justify-content-center">
+                        @foreach (var item in Model)
+                        {
+                            <li class="gallery-item">
+                                <div class="gallery-grid1">
+                                    <a href="@item.imageUrl" target="_blank">
+                                        <img src="@item.imageUrl" alt=" " class="img-fluid" />
+                                    </a>
+                                    <div class="p-mask">
+                                        <h4>@item.tittle</h4>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .gallery-list {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
+        margin: 0;
+        justify-content: space-evenly;
+    }
+
+    .gallery-item {
+        width: 300px;
+        height: 200px;
+        margin: 10px;
+        list-style: none;
+    }
+
+    .gallery-grid1 {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+        .gallery-grid1 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery-grid1:hover img {
+            transform: scale(1.05);
+        }
+
+    .p-mask {
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .gallery-grid1:hover .p-mask {
+        opacity: 1;
+    }
+
+    .p-mask h4 {
+        font-size: 1rem;
+        margin: 0;
+    }
+</style>
+ *@
+
+@* @using InciAlbum.EntityLayer.Concrete
+@model List<Image>
+
+<section class="gallery py-lg-5 py-3" id="gallery">
+    <div class="container-fluid">
+        <div class="inner-sec-w3ls-agileits p-lg-5 p-3">
+            <div class="gallery_grids row">
+                <div class="col-12 header-info mb-5 text-center">
+                    <h3 class="heading">Foto Galeri</h3>
+                    <p>Çeşitli Organizasyonlarda Yaptığımız Örnek Çekimlere Buradan Göz Atabilirsiniz</p>
+                </div>
+                <div class="col-12 gal-content">
+                    <ul class="gallery-list d-flex flex-wrap list-unstyled justify-content-center">
+                        @foreach (var item in Model)
+                        {
+                            <li class="gallery-item">
+                                <div class="gallery-grid1">
+                                    <img src="@item.imageUrl" alt=" " class="img-fluid" onclick="showFullImage(this.src)" />
+                                    <div class="p-mask">
+                                        <h4>@item.tittle</h4>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tam boyutlu resim gösterimi için bir alan -->
+<div id="fullImageContainer" class="full-image-container" onclick="closeFullImage()">
+    <img id="fullImage" src="" alt="Tam Boyutlu Görüntü" class="full-image" />
+</div>
+
+<style>
+    .gallery-list {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
+        margin: 0;
+        justify-content: space-evenly;
+    }
+
+    .gallery-item {
+        width: 300px;
+        height: 200px;
+        margin: 10px;
+        list-style: none;
+    }
+
+    .gallery-grid1 {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+        .gallery-grid1 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .gallery-grid1:hover img {
+            transform: scale(1.05);
+        }
+
+    .p-mask {
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .gallery-grid1:hover .p-mask {
+        opacity: 1;
+    }
+
+    .p-mask h4 {
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    .full-image-container {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+    }
+
+    .full-image {
+        max-width: 90%;
+        max-height: 90%;
+        border: 5px solid #fff;
+        border-radius: 10px;
+    }
+</style>
+
+<script>
+    function showFullImage(src) {
+        document.getElementById("fullImageContainer").style.display = "flex";
+        document.getElementById("fullImage").src = src;
+    }
+
+    function closeFullImage() {
+        document.getElementById("fullImageContainer").style.display = "none";
+        document.getElementById("fullImage").src = "";
+    }
+</script>
+ *@
+
+@using InciAlbum.EntityLayer.Concrete
+@model List<Image>
+
+<section class="gallery py-lg-5 py-3" id="gallery">
 	<div class="container-fluid">
 		<div class="inner-sec-w3ls-agileits p-lg-5 p-3">
 			<div class="gallery_grids row">
-				<div class="col-lg-3 header-info mt-5">
+				<div class="col-12 header-info mb-5 text-center">
 					<h3 class="heading">Foto Galeri</h3>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Nunc Nam vel feugiat</p>
-
+					<p>Çeşitli Organizasyonlarda Yaptığımız Örnek Çekimlere Buradan Göz Atabilirsiniz</p>
 				</div>
-				<div class="col-lg-9 gal-content">
-					<ul class="clearfix demo">
-						<li>
-							<div class="gallery-grid1">
-								<img src="~/web/images/g1.jpg" alt=" " class="img-fluid" />
-								<div class="p-mask">
-									<h4>Shoot</h4>
+				<div class="col-12 gal-content">
+					<ul class="gallery-list d-flex flex-wrap list-unstyled justify-content-center">
+						@foreach (var item in Model)
+						{
+							<li class="gallery-item">
+								<div class="gallery-grid1">
+									<img src="@item.imageUrl" alt=" " class="img-fluid" />
+									<div class="p-mask">
+										<h4 onclick="showFullImage('@item.imageUrl')" style="cursor: pointer;">@item.tittle</h4>
+									</div>
 								</div>
-							</div>
-						</li>
-						<li>
-							<div class="gallery-grid1">
-								<img src="~/web/images/g2.jpg" alt=" " class="img-fluid" />
-								<div class="p-mask">
-									<h4>Shoot</h4>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="gallery-grid1">
-								<img src="~/web/images/g3.jpg" alt=" " class="img-fluid" />
-								<div class="p-mask">
-									<h4>Shoot</h4>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="gallery-grid1">
-								<img src="~/web/images/g4.jpg" alt=" " class="img-fluid" />
-								<div class="p-mask">
-									<h4>Shoot</h4>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="gallery-grid1">
-								<img src="~/web/images/g5.jpg" alt=" " class="img-fluid" />
-								<div class="p-mask">
-									<h4>Shoot</h4>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="gallery-grid1">
-								<img src="~/web/images/g6.jpg" alt=" " class="img-fluid" />
-								<div class="p-mask">
-									<h4>Shoot</h4>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="gallery-grid1">
-								<img src="~/web/images/g7.jpg" alt=" " class="img-fluid" />
-								<div class="p-mask">
-									<h4>Shoot</h4>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="gallery-grid1">
-								<img src="~/web/images/g5.jpg" alt=" " class="img-fluid" />
-								<div class="p-mask">
-									<h4>Shoot</h4>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="gallery-grid1">
-								<img src="~/web/images/g6.jpg" alt=" " class="img-fluid" />
-								<div class="p-mask">
-									<h4>Shoot</h4>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="gallery-grid1">
-								<img src="~/web/images/g3.jpg" alt=" " class="img-fluid" />
-								<div class="p-mask">
-									<h4>Shoot</h4>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="gallery-grid1">
-								<img src="~/web/images/g1.jpg" alt=" " class="img-fluid" />
-								<div class="p-mask">
-									<h4>Shoot</h4>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="gallery-grid1">
-								<img src="~/web/images/g3.jpg" alt=" " class="img-fluid" />
-								<div class="p-mask">
-									<h4>Shoot</h4>
-								</div>
-							</div>
-						</li>
+							</li>
+						}
 					</ul>
 				</div>
-
 			</div>
 		</div>
 	</div>
 </section>
+
+<!-- Tam boyutlu resim gösterimi için bir alan -->
+<div id="fullImageContainer" class="full-image-container" onclick="closeFullImage()">
+	<img id="fullImage" src="" alt="Tam Boyutlu Görüntü" class="full-image" />
+</div>
+
+<style>
+	.gallery-list {
+		display: flex;
+		flex-wrap: wrap;
+		padding: 0;
+		margin: 0;
+		justify-content: space-evenly;
+	}
+
+	.gallery-item {
+		width: 300px;
+		height: 200px;
+		margin: 10px;
+		list-style: none;
+	}
+
+	.gallery-grid1 {
+		width: 100%;
+		height: 100%;
+		position: relative;
+		overflow: hidden;
+		border-radius: 10px;
+	}
+
+		.gallery-grid1 img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform 0.3s ease-in-out;
+		}
+
+		.gallery-grid1:hover img {
+			transform: scale(1.05);
+		}
+
+	.p-mask {
+		background: rgba(0, 0, 0, 0.7);
+		color: #fff;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		transition: opacity 0.3s ease-in-out;
+	}
+
+	.gallery-grid1:hover .p-mask {
+		opacity: 1;
+	}
+
+	.p-mask h4 {
+		font-size: 1rem;
+		margin: 0;
+		cursor: pointer;
+	}
+
+	.full-image-container {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.8);
+		justify-content: center;
+		align-items: center;
+		z-index: 999;
+	}
+
+	.full-image {
+		max-width: 90%;
+		max-height: 90%;
+		border: 5px solid #fff;
+		border-radius: 10px;
+	}
+</style>
+
+<script>
+	function showFullImage(src) {
+		document.getElementById("fullImageContainer").style.display = "flex";
+		document.getElementById("fullImage").src = src;
+	}
+
+	function closeFullImage() {
+		document.getElementById("fullImageContainer").style.display = "none";
+		document.getElementById("fullImage").src = "";
+	}
+</script>

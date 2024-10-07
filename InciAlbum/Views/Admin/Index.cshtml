@@ -1,0 +1,77 @@
+﻿@using InciAlbum.EntityLayer.Concrete
+@model List<Admin>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/admin_Layout.cshtml";
+}
+
+<h1 class="text-center my-title">Kullanıcılar</h1>
+<br />
+<div class="table-responsive">
+    <table class="table table-hover table-bordered my-table">
+        <thead class="thead-light">
+            <tr>
+                <th>ID</th>
+                <th>Kullanıcı Adı</th>                
+                <th>Sil</th>
+                <th>Güncelle</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.adminId</td>
+                    <td>@item.username</td>                   
+                    <td><a class="btn btn-outline-danger" href="/Admin/DeleteAdmin/@item.adminId">Sil</a></td>
+                    <td><a class="btn btn-outline-success" href="/Admin/UpdateAdmin/@item.adminId">Güncelle</a></td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="text-center mt-4">
+    <a href="@Url.Action("AddAdmin", "Admin")" class="btn btn-dark-gray">Yeni Kullanıcı Ekle</a>
+</div>
+
+<style>
+    .my-title {
+        font-family: 'Arial', sans-serif;
+        font-size: 2.5rem;
+        color: #003366;
+        margin-bottom: 20px;
+    }
+
+    .my-table {
+        background-color: #ffffff;
+        border-radius: 0.5rem;
+        overflow: hidden;
+    }
+
+    .table th {
+        background-color: #003366;
+        color: white;
+    }
+
+    .table td {
+        text-align: center;
+    }
+
+    .btn-dark-gray {
+        background-color: #003366;
+        color: white;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 0.3rem;
+    }
+
+        .btn-dark-gray:hover {
+            background-color: #555555;
+        }
+</style>
+
+
+

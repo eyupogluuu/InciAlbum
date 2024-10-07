@@ -1,36 +1,42 @@
-﻿<footer class="py-lg-5 py-3">
+﻿@using InciAlbum.EntityLayer.Concrete
+@model List<myAdress>
+<footer class="py-lg-5 py-3">
 	<div class="container-fluid">
 		<div class="inner-sec-w3ls-agileits py-lg-5 p-3">
 			<div class="row">
 				<div class="col-lg-3 footer-grid1-wthree-agileits text-left">
 					<h3 class="mb-4">Incı Album</h3>
 					<p>
-						Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing
-						and typesetting industry.
+						Fotoğrafçılık, albüm ve davetiye tasarımı alanında uzmanlaşmış ekibimizle, 
+						özel anlarınızı ölümsüzleştirmek için buradayız.
 					</p>
-					<a href="#" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-sm animated-button gibson-three mt-3">Read More</a>
+					
 				</div>
 				<div class="col-lg-3 footer-grid1-wthree-agileits text-left">
-					<h3 class="mb-4">Locate Us</h3>
+					<h3 class="mb-4">Adres Bilgileri</h3>
 					<ul class="footer-bottom-list">
-						<li>
-							<span class="fas fa-map-marker-alt"></span> 3481 Honey Street
-							<span> 90990 Block, USA </span>
+						@foreach (var item in Model)
+						{
+							<li>
+							<span class="fas fa-map-marker-alt"></span> @item.descreption1
+							<span> @item.descreption2</span>
 						</li>
 						<li>
 							<span class="fas fa-envelope"></span>
-							<a href="mailto:name@example.com"> mail@example.com</a>
+							<a href="mailto:name@example.com"> @item.descreption3</a>
 						</li>
 						<li>
-							<span class="fas fa-phone"></span> +143 367 436 2049
+							<span class="fas fa-phone"></span> @item.phone
 						</li>
-						<li>
+						@* <li>
 							<span class="fas fa-fax"></span> +166 367 808 5055
 						</li>
 						<li>
 							<span class="fas fa-globe"></span>
 							<a href="#"> www.websitename.com</a>
-						</li>
+						</li> *@
+						}
+						
 
 					</ul>
 				</div>
@@ -46,11 +52,11 @@
 							<div class="col-md-8 blog-grid-right">
 
 								<h5>
-									<a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+									<a href="single.html">Örnek Görsellere GözAtabilirsiniz</a>
 								</h5>
 								<div class="sub-meta">
 									<span>
-										<i class="far fa-clock"></i> 20 Apr, 2018
+										<i class="far fa-clock"></i> 20 Nisan, 2023
 									</span>
 								</div>
 							</div>
@@ -66,11 +72,11 @@
 							<div class="col-md-8 blog-grid-right">
 
 								<h5>
-									<a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+									<a href="single.html">Örnek Görsellere GözAtabilirsiniz </a>
 								</h5>
 								<div class="sub-meta">
 									<span>
-										<i class="far fa-clock"></i> 23 Apr, 2018
+										<i class="far fa-clock"></i> 23 Mayıs, 2023
 									</span>
 								</div>
 							</div>
@@ -80,21 +86,11 @@
 				</div>
 				<!-- subscribe -->
 				<div class="col-lg-3 subscribe-main-w3ls-agileits footer-grid text-left">
-					<h3 class="mb-4">Newsletter</h3>
-					<div class="subscribe-main-w3ls-agileits text-left">
-						<div class="subscribe-form">
-							<form action="#" method="post" class="subscribe_form">
-								<input class="form-control" type="email" placeholder="Enter Your Email..." required="">
-								<button type="submit" class="btn1 btn-primary submit">
-									<i class="fas fa-paper-plane" aria-hidden="true"></i>
-								</button>
-							</form>
-						</div>
-					</div>
+					
 					<!-- //subscribe -->
 					<div class="footer-social mt-4">
 						<div class="copyrighttop">
-							<h3 class="mb-4">Sosyal Medya </h3>
+							<h3 class="mb-4">Sosyal Medya Hesaplarımız </h3>
 							<ul class="social_list1 text-left">
 
 								<li>

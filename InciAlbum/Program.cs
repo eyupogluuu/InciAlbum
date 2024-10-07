@@ -35,6 +35,11 @@ builder.Services.AddScoped<IContactDal, EFContactDal>();
 builder.Services.AddScoped<IProductService, ProductManager>();
 builder.Services.AddScoped<IProductDal, EFProductDal>();
 
+builder.Services.AddScoped<IAboutService, AboutManager>();
+builder.Services.AddScoped<IAboutDal, EFAboutDal>();
+
+builder.Services.AddScoped<IAdminService, AdminManager>();
+builder.Services.AddScoped<IAdminDal, EFAdminDal>();
 
 
 var app = builder.Build();

@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace InciAlbum.EntityLayer.Concrete
 {
-    public class myService
-    {
-        public int myServiceId { get; set; }
-        public string tittle { get; set; }
+	public class About
+	{
+        public int aboutId { get; set; }
         public string descreption { get; set; }
-        public string icon { get; set; }
     }
 }

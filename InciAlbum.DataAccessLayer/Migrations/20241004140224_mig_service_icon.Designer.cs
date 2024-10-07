@@ -4,6 +4,7 @@ using InciAlbum.DataAccessLayer.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InciAlbum.DataAccessLayer.Migrations
 {
     [DbContext(typeof(InciAlbumContext))]
-    partial class InciAlbumContextModelSnapshot : ModelSnapshot
+    [Migration("20241004140224_mig_service_icon")]
+    partial class mig_service_icon
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,27 +39,6 @@ namespace InciAlbum.DataAccessLayer.Migrations
                     b.HasKey("aboutId");
 
                     b.ToTable("Abouts");
-                });
-
-            modelBuilder.Entity("InciAlbum.EntityLayer.Concrete.Admin", b =>
-                {
-                    b.Property<int>("adminId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("adminId"), 1L, 1);
-
-                    b.Property<string>("password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("username")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("adminId");
-
-                    b.ToTable("Admins");
                 });
 
             modelBuilder.Entity("InciAlbum.EntityLayer.Concrete.Contact", b =>

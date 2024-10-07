@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     Layout = null;
 }
 
@@ -52,7 +53,7 @@
 	@await Component.InvokeAsync("_noticePartial")
 	<!--//notices-->
 	<!-- contact -->
-	@await Component.InvokeAsync("_contactPartial")
+	@await Component.InvokeAsync("_contactPartial",Model)
 	<!-- //contact -->
 	<!--footer-->
 	@await Component.InvokeAsync("_footerPartial")

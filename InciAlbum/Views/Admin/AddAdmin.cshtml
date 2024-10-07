@@ -1,0 +1,49 @@
+﻿@model InciAlbum.EntityLayer.Concrete.Admin
+@{
+    ViewData["Title"] = "AddAdmin";
+    Layout = "~/Views/Shared/admin_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <h2 class="text-center mb-4">Yeni Kullanıcı Ekle</h2>
+
+    <form method="post" class="p-4 border rounded shadow-sm bg-light">
+        <div class="mb-3">
+            <label  class="form-label">Kullanıcı Adı</label>
+            <input type="text" asp-for="username" class="form-control"  />
+        </div>
+
+        <div class="mb-3">
+            <label  class="form-label">Sifre</label>
+            <input type="password" asp-for="password" class="form-control"  />
+        </div>
+
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-dark">Kaydet</button>
+        </div>
+    </form>
+</div>
+
+<style>
+    .container-fluid {
+        background-color: #f8f9fa;
+        padding: 30px;
+    }
+
+    .form-label {
+        font-weight: bold;
+    }
+
+    .btn-dark {
+        background-color: #343a40;
+        color: white;
+    }
+
+        .btn-dark:hover {
+            background-color: #495057;
+        }
+</style>
+
+
+

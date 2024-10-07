@@ -1,4 +1,7 @@
-﻿using InciAlbum.BusinessLayer.Abstract;
+﻿using FluentValidation.Results;
+using InciAlbum.BusinessLayer.Abstract;
+using InciAlbum.BusinessLayer.ValidationRules;
+using InciAlbum.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InciAlbum.Controllers
@@ -28,5 +31,7 @@ namespace InciAlbum.Controllers
             contactService.Delete(sil);
             return RedirectToAction("Index");
         }
-    }
+        
+
+	}
 }

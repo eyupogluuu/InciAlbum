@@ -21,5 +21,7 @@ namespace InciAlbum.DataAccessLayer.Contexts
         public DbSet<Product> Products { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<About> Abouts { get; set; }
+        public DbSet<Admin> Admins { get; set; }
     }
 }

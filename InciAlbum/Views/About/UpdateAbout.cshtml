@@ -1,0 +1,45 @@
+﻿@model InciAlbum.EntityLayer.Concrete.About
+@{
+    ViewData["Title"] = "UpdateAbout";
+    Layout = "~/Views/Shared/admin_Layout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <h2 class="text-center mb-4">Hakkımızda Güncelle</h2>
+
+    <form method="post" class="p-4 border rounded shadow-sm bg-light">
+        @Html.HiddenFor(x=>x.aboutId)
+        <div class="mb-3">
+            <label for="descreption" class="form-label">Hakkımızda Açıklama</label>
+            <textarea cols="30" rows="5" asp-for="descreption" class="form-control"></textarea>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-success">Güncelle</button>
+        </div>
+    </form>
+</div>
+
+<style>
+    .container-fluid {
+        background-color: #f8f9fa;
+        padding: 30px;
+    }
+
+    .form-label {
+        font-weight: bold;
+    }
+
+    .btn-dark {
+        background-color: #343a40;
+        color: white;
+    }
+
+        .btn-dark:hover {
+            background-color: #495057;
+        }
+</style>
+
+
+
