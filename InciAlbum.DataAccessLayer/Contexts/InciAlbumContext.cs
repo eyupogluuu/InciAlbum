@@ -1,4 +1,5 @@
 ﻿using InciAlbum.EntityLayer.Concrete;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace InciAlbum.DataAccessLayer.Contexts
 {
-    public class InciAlbumContext:DbContext
+    public class InciAlbumContext:IdentityDbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

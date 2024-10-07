@@ -2,10 +2,12 @@
 using InciAlbum.BusinessLayer.Abstract;
 using InciAlbum.BusinessLayer.ValidationRules;
 using InciAlbum.EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InciAlbum.Controllers
 {
+	[AllowAnonymous]
 	public class ShowCaseController : Controller
 	{
 		private readonly IContactService contactService;

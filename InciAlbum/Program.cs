@@ -5,6 +5,10 @@ using InciAlbum.DataAccessLayer.Abstract;
 using InciAlbum.DataAccessLayer.Concrete.EntityFramework;
 using InciAlbum.DataAccessLayer.Contexts;
 using InciAlbum.EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +17,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<InciAlbumContext>();
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<InciAlbumContext>();
 
 builder.Services.AddScoped<ImyServiceService, myServiceManager>();
 builder.Services.AddScoped<ImyServiceDal, EFmyServiceDal>();
@@ -41,6 +47,22 @@ builder.Services.AddScoped<IAboutDal, EFAboutDal>();
 builder.Services.AddScoped<IAdminService, AdminManager>();
 builder.Services.AddScoped<IAdminDal, EFAdminDal>();
 
+builder.Services.AddMvc(config =>
+
+{
+    var policy = new AuthorizationPolicyBuilder()
+    .RequireAuthenticatedUser()
+    .Build();
+    config.Filters.Add(new AuthorizeFilter(policy));
+});
+
+builder.Services.AddAuthentication(
+    CookieAuthenticationDefaults.AuthenticationScheme)
+   .AddCookie(x =>
+    {
+   x.LoginPath = "/Login/Index/";
+
+    });
 
 var app = builder.Build();
 
@@ -55,6 +77,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();
+app.UseAuthentication();
 
 app.UseRouting();
 
@@ -63,6 +86,6 @@ app.MapDefaultControllerRoute();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=ShowCase}/{action=Index}/{id?}");
 
 app.Run();
